@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Manipulation</title>
 </head>
-<body>
-    <ul>
-        <li>First Element</li>
-        <li>Second Element</li>
-        <li>Third Element</li>
+<body id="body"> 
+
+    <ul id="element" data="valid" >
+        <li class="list-item">First Element</li>
+        <li class="list-item">Second Element</li>
+        <li class="list-item">Third Element</li>
     </ul>
+
+    <div id="replacing">Hello World</div>
 
     <table>
         <tr>
@@ -23,6 +26,7 @@
             <td>Four</td>
         </tr>
     </table>
+
     <script>
         //for accessing rootNode
         // console.log(document.documentElement); //for accessing html tag //show child of document ie "html tag"
@@ -69,6 +73,79 @@
         //     // console.log(table_Tag.tBodies[0].rows[0].cells[1].textContent); //tBodies= all things inside a table, rows[0]=first row of table, cells=all element inside a table
 
         //     console.log(table_Tag.tBodies[0].rows[0].cells[1].style="background-color:red"); //we can also style our tag by the help of style object
+
+        // //DOM Manipulation using ID
+        // //console.log(element.style.background="yellow");
+        // const ulTag = document.getElementById("element");
+        // ulTag.style.backgroundColor="pink";
+
+        // //DOM Manipulation using Class-name
+        // const liTag = document.getElementsByClassName("list-item");
+        // console.log(liTag);
+        // console.log(document.getElementsByTagName("table")); //we can also access Tag by the help of TagName
+
+        //Query-Selector
+        // const listItems = document.querySelectorAll('.list-item');
+        // console.log(listItems);
+        // const listItems = document.querySelectorAll('ul > li:last-child'); //we can also access child by this syntax  //'ul > li:nth-child(2)'
+        // console.log(listItems[0].textContent);
+
+        // //Accessing pre-defined Attribute
+        // console.log(element.getAttribute('data')); //element is 'ID' & data is Attribute Variable   
+        // console.log(element.setAttribute('order-placed','pending'));
+        // console.log(element.hasAttribute('order-placed')); //check whether given attribute is present or not
+
+
+        // //creating and removing the node elements
+        // const newDiv = document.createElement('div'); //creating new element i.e div
+        // const newText = document.createTextNode('Creating a  new div'); //giving the value of div element
+        // //newDiv.textContent="Hello Hemant" //another way to add value to div tag
+        // newDiv.appendChild(newText); //adding the Text value to Div tag 
+        // // body.append(newDiv); //adding newDiv to 'body element'
+
+        // // body.prepend(newDiv); //newDiv will move to top of the 'body element'
+        // // body.before(newDiv); //newDiv will go up to the 'body element' (adding any tag above tag)
+        // // body.after(newDiv); //(adding any tag below tag)
+        // //replacing.replaceWith(newDiv); //replace div value to newDev Value
+        // //replacing.remove(); //remove the div tag whose id is replacing
+
+
+//         //innerHTML
+//         const newDivtag = document.createElement('div');
+//         newDivtag.innerHTML = `<form action="">
+//     <h1 style="color:red">Payment Form</h1><hr> <!-- 1st way of link Css in HTML -->
+    
+//     <h2>user Details</h2>
+//     <p>Name : <input type="text" name="Name" required></p>
+//     <fieldset>
+//     <legend>Gender</legend>
+//     <p><input type="radio" name="Gender">Male</p>
+//     <p><input type="radio" name="Gender">Female</p>
+//     <p><input type="radio" name="Gender">Other</p>
+// </fieldset>
+// <p>Mobile Number : <input type="number" name="Number" required></p>
+// <p>PIN CODE : <input type="number" name="Pin Code" required></p>
+// <p>Email : <input type="email" name="Email"></p>
+// <p>Address : <textarea name="Address" id="address" cols="50" rows="5"></textarea></p>
+// <hr>
+// <h2>Card Details</h2>
+
+// <p>Card Type : <select name="Card_Type">
+//     <option value="visa">Visa</option>
+//     <option value="Rupay">Rupay</option>
+//     <option value="MasterCard">MasterCard</option>
+//     <option value="Cred">Cred</option>
+//     </select>
+// </p>
+// <p>Card Number : <input type="number" name="Card Number" required></p>
+// <p>Expiry Date : <input type="date" name="Date" ></p>
+// <p>CVV : <input type="password" name="Card Number"required></p>
+// <hr>
+// <input type="submit" value="Pay Now">
+// </form>`
+//     body.append(newDivtag);
+
+
 
     </script>
 </body>
