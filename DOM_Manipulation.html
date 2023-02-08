@@ -26,7 +26,8 @@
             <td>Four</td>
         </tr>
     </table>
-
+    <button  onclick="alert('Fuck Me Hard')">Fuck Me</button> <!-- One way to use onclick function-->
+    <button id="ClickMe">Oh Yes!</button>
     <script>
         //for accessing rootNode
         // console.log(document.documentElement); //for accessing html tag //show child of document ie "html tag"
@@ -145,6 +146,31 @@
 // </form>`
 //     body.append(newDivtag);
 
+
+    //Events
+
+    //Prev Example // const message = document.querySelector('button');
+    // message.addEventListener('click',HelloMSg);
+    // function HelloMSg(){
+    //     alert('Hello Hemant');
+    // }
+
+    //we pass the func i.e showMe becoz if we call the func then before click, it will show message
+    ClickMe.onclick=showMe; //clickme is the id, onclick is the event, showMe is function
+    // ClickMe.onclick=function(){  //another way to declared and define func
+        //     alert("Akkar bakkar Bombay Bo");
+        //  }
+        //ClickMe.addEventListner('click',showMe)  //another way to declared and define func
+        //ClickMe.removeEventListner('click',showMe)
+        
+        function showMe(event){
+          // console.log(this);
+          console.log(event.type)
+          console.log(event.currentTarget)
+          console.log(event.clientX)
+          console.log(event.clientY)
+           alert("Akkar bakkar Bombay Bo")
+        }
 
 
     </script>
