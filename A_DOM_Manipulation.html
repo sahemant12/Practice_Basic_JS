@@ -12,6 +12,17 @@
         <li>Second Element</li>
         <li>Third Element</li>
     </ul>
+
+    <table>
+        <tr>
+            <td>One</td>
+            <td>Two</td>
+        </tr>
+        <tr>
+            <td>Three</td>
+            <td>Four</td>
+        </tr>
+    </table>
     <script>
         //for accessing rootNode
         // console.log(document.documentElement); //for accessing html tag //show child of document ie "html tag"
@@ -20,11 +31,44 @@
         // console.log(document.head); //for accessing head tag
         // console.log(document.body); //for accessing body tag
 
-        //child node
-        console.log(document.body.childNodes);
-        console.log(document.head.childNodes);
-        console.log(document.body.children);
+        // //child node
+        // console.log(document.body.childNodes);
+        // console.log(document.head.childNodes);
+        // console.log(document.body.children);
 
+        // //first/last child
+        // console.log(document.body.firstChild);
+        // console.log(document.body.lastChild);
+        // console.log(document.body.firstElementChild); //access only element node
+        // console.log(document.body.lastElementChild);  //access only element node
+
+
+       // //using for-loop to accessing children of body
+        // for(node of document.body.children){
+        //     console.log(node)
+        // }
+        // for(let nodes in document.body.children){
+        //     console.log(document.body.children[nodes]);
+        // }
+
+
+        // const childrenOfBody = Array.from(document.body.children); //accessing children of body by the help of array object
+        // console.log(childrenOfBody);
+
+        // //Siblings(To access siblings)
+        // const ulTag=document.body.children[0];
+        // const FirstLi=ulTag.children[0]
+        // const SecondLi=ulTag.children[1]
+        // console.log(SecondLi.nextElementSibling.textContent)
+        // console.log(SecondLi.previousElementSibling.textContent)
+
+
+        // //Table DOM Manipulation
+        //     const table_Tag = document.body.children[1];
+        //     // console.log(table_Tag.rows); //access all rows present in table
+        //     // console.log(table_Tag.tBodies[0].rows[0].cells[1].textContent); //tBodies= all things inside a table, rows[0]=first row of table, cells=all element inside a table
+
+        //     console.log(table_Tag.tBodies[0].rows[0].cells[1].style="background-color:red"); //we can also style our tag by the help of style object
 
     </script>
 </body>
