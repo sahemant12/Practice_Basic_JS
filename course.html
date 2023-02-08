@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courses</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs- 
+            target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria- 
+            label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link" href="#">Features</a>
+                  <a class="nav-link" href="#">Pricing</a>
+                  <a class="nav-link disabled">Disabled</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <div class="container mt-5 col-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Chapter" aria-label="Recipient's 
+             username" aria-describedby="button-addon2">
+            <button id="btn-clk" class="btn btn-outline-success" type="button" id="button-addon2">Add</button>
+          </div>
+
+          <ul class="list-group" id="ParentClass">
+            <li class="list-group-item d-flex justify-content-between"> <!-- d-flex all box comes in same line-->
+               <h3 class="flex-grow-1"> Chapter 1</h3>
+              <button class="btn btn-warning mx-3" onclick="editChapter(this)">Edit</button>
+              <button class="btn btn-danger" onclick="removeChapter(this)">Remove</button> <!-- removeChapter is a function onclicking on it will remove chapter-->
+            </li>
+          </ul>
+        </div>
+    </main>
+    <script>
+        let addBtn=document.getElementById("btn-clk");
+          addBtn.addEventListener("click",addChapter);
+
+        // function addChapter(e){
+        //    let currentBtn=e.currentTarget;  //select the current button
+        //    let currentInput=currentBtn.previousElementSibling;  //take the text of previous sibling
+        //    //console.log(currentInput.value);
+
+        //    let newLi= document.createElement('li'); //create new li and store in 'newLi'
+        //        newLi.classList.add('list-group-item'); //adding new Li to the class "list-group-item"
+        //        newLi.textContent=currentInput.value;
+
+        //     let ParentClass=document.getElementById('ParentClass');
+        //     ParentClass.appendChild(newLi);
+        // }
+        let ParentClass=document.getElementById('ParentClass');
+        function addChapter(e){
+          if(ParentClass.children[0].className=="empty-msg"){
+            ParentClass.children[0].remove();
+          }
+          
+           let currentBtn=e.currentTarget; 
+           let currentInput=currentBtn.previousElementSibling;  
+           //console.log(currentInput.value);
+           let currentChapterName=currentInput.value;
+
+           let newLi= document.createElement('li'); 
+             //  newLi.classList.add('list-group-item'); 
+             newLi.className="list-group-item d-flex justify-content-between";
+               newLi.innerHTML=`<h3 class="flex-grow-1">${currentChapterName}</h3>  
+              <button class="btn btn-warning mx-3">Edit</button>
+              <button class="btn btn-danger" onclick="removeChapter(this)">Remove</button>`  //return the HTML content(inner HTML)
+
+
+            ParentClass.appendChild(newLi);
+        }
+
+        //for remove
+        function removeChapter(currElement){
+          currElement.parentElement.remove();
+
+          if(ParentClass.children.length<=0){
+            let newEmptyMsg=document.createElement('h3');
+            newEmptyMsg.textContent="Nothing is here, please add chapter"
+            ParentClass.appendChild(newEmptyMsg);
+            newEmptyMsg.classList.add("empty-msg");
+          }
+        }
+
+        //for edit
+        function editChapter(currElement){
+        //  console.log(currElement.previousElementSibling);
+        if(currElement.textContent="Done"){
+          currElement.textContent="Edit"
+          let currChapterName=currElement.previousElementSibling.value;
+        }else{
+          currElement.textContent="Done";
+          let currChapterName=currElement.previousElementSibling.textContent;
+          let currInput=document.createElement('input');
+          currInput.type="text";
+          currInput.placeholder="Chapter-name";
+          currInput.className="form-control";
+          currInput.value=currChapterName;
+          currElement.parentElement.replaceChild(currInput,currElement.previousElementSibling);
+        }
+        
+         
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <ul>
+        <li>First Element</li>
+        <li>Second Element</li>
+        <li>Third Element</li>
+    </ul>
+    <script>
+        //for accessing rootNode
+        // console.log(document.documentElement); //for accessing html tag //show child of document ie "html tag"
+        // console.log(document.documentElement.childNodes); //for accessing child of html ie "head,text,body tag"
+        // console.log(document.documentElement.children); //it will access only element node not text,comment etc.
+        // console.log(document.head); //for accessing head tag
+        // console.log(document.body); //for accessing body tag
+
+        //child node
+        console.log(document.body.childNodes);
+        console.log(document.head.childNodes);
+        console.log(document.body.children);
+
+
+    </script>
+</body>
+</html>
